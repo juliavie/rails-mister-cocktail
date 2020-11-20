@@ -1,24 +1,18 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-Ingredient.destroy_all
-Cocktail.destroy_all
-Ingredient.create(name: "lemon")
-Ingredient.create(name: "ice")
-Ingredient.create(name: "mint leaves")
-Ingredient.create(name: "orange")
-Ingredient.create(name: "strawberry")
 
-Cocktail.create(name: "Gin Tonic")
-Cocktail.create(name: "Pina Colada")
-Cocktail.create(name: "Wiskey Sour")
+# Ingredient.destroy_all
+# Cocktail.destroy_all
+# Ingredient.create(name: "lemon")
+# Ingredient.create(name: "ice")
+# Ingredient.create(name: "mint leaves")
+# Ingredient.create(name: "orange")
+# Ingredient.create(name: "strawberry")
 
-puts "#{Ingredient.count} ingredients created"
-puts "#{Cocktail.count} cocktail created"
+# Cocktail.create(name: "Gin Tonic")
+# Cocktail.create(name: "Pina Colada")
+# Cocktail.create(name: "Wiskey Sour")
+
+# puts "#{Ingredient.count} ingredients created"
+# puts "#{Cocktail.count} cocktail created"
 
 
 # json
@@ -28,16 +22,16 @@ puts "#{Cocktail.count} cocktail created"
 # 4. for every item in the hash create an ingredient.create
 
 
-# require 'json'
-# require 'open-uri'
+require 'json'
+require 'open-uri'
 
-# Ingredient.destroy_all
+Ingredient.destroy_all
 
-# result = JSON.parse(open('http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list').read)
-# drinks = result['drinks']
+result = JSON.parse(open('https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list').read)
+drinks = result['drinks']
 
-# drinks.each do |hash|
-#   hash.each do |k, v|
-#     Ingredient.create(name: v)
-#   end
-# end
+drinks.each do |hash|
+  hash.each do |k, v|
+    Ingredient.create(name: v)
+  end
+end
