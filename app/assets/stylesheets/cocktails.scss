@@ -1,11 +1,14 @@
 // Place all the styles related to the cocktails controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+body {
+  background-color: #E29092;
+}
 
 .container {
   margin: 0 auto;
-  background-color: red;
-
+  background-color: white;
+  margin: 0 auto;
 }
 
 .cards {
@@ -13,4 +16,11 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 15px;
+  padding: 20px 10px;
+}
+
+.redirect {
+  background-color: #EA4C89;
+  text-decoration: none;
+  color: white;
 }

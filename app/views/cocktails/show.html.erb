@@ -8,7 +8,7 @@
   </li>
   <% end %>
 </ul>
-
+<%= cl_image_tag(@cocktail.photo.key, height: 300, width: 400, crop: :fill) if @cocktail.photo.attached? %>
 <h3>Create a new dose</h3>
 <%= render "doses/form", cocktail: @cocktail, dose: @dose %>
 
